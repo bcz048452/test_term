@@ -399,28 +399,8 @@ code {
 <h2 id="1-%E4%BA%8B%E5%89%8D%E4%BD%9C%E6%A5%AD">1. 事前作業</h2>
 <hr>
 <ol>
-<li>
-<p>作業開始連絡<br>
-関係者に作業開始の連絡を行う</p>
-</li>
-<li>
-<p>監視外連絡<br>
-オペレーター宛にに監視外の連絡を行う</p>
-</li>
-<li>
-<p>動作確認<br>
-以下のページにアクセスできることを確認</p>
-<ul>
-<li>tbfr901v(s01)</li>
-<li>bae-dev.benesse.ne.jp</li>
-<li>tbfr901v(s03)</li>
-<li>bae-dev-staging.benesse.ne.jp</li>
-<li>tbfr921v(s01)</li>
-<li>bae-dev-staging.benesse.ne.jp</li>
-<li>tbfr931v</li>
-<li></li>
-</ul>
-</li>
+<li>作業開始連絡<br>
+関係者に作業開始の連絡を行う</li>
 </ol>
 <hr>
 <h2 id="2-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3">2. サーバログイン</h2>
@@ -508,124 +488,124 @@ route-eth1を編集する</p>
 <pre class="hljs"><code><div>## ascot1-01-01v
 GATEWAY16=172.21.96.1
 NETMASK16=255.255.255.255
-ADDRESS16=172.26.42.121/32
+ADDRESS16=172.26.42.121
 
 ## ascot1-01-02v
 GATEWAY17=172.21.96.1
 NETMASK17=255.255.255.255
-ADDRESS17=172.26.42.122/32
+ADDRESS17=172.26.42.122
 
 ## ascot1-01-03v
 GATEWAY18=172.21.96.1
 NETMASK18=255.255.255.255
-ADDRESS18=172.26.42.123/32
+ADDRESS18=172.26.42.123
 
 ## ascot1-01-04v
 GATEWAY19=172.21.96.1
 NETMASK19=255.255.255.255
-ADDRESS19=172.26.42.124/32
+ADDRESS19=172.26.42.124
 
 ## Reserved IP Address for AccessCheck-1
 GATEWAY20=172.21.96.1
 NETMASK20=255.255.255.255
-ADDRESS20=172.26.42.126/32
+ADDRESS20=172.26.42.126
 
 ## Reserved IP Address for AccessCheck-2
 GATEWAY21=172.21.96.1
 NETMASK21=255.255.255.255
-ADDRESS21=172.26.42.127/32
+ADDRESS21=172.26.42.127
 
 ## Reserved IP Address for AccessCheck-3
 GATEWAY22=172.21.96.1
 NETMASK22=255.255.255.255
-ADDRESS22=172.26.42.128/32
+ADDRESS22=172.26.42.128
 
 ## Reserved IP Address for AccessCheck-4
 GATEWAY23=172.21.96.1
 NETMASK23=255.255.255.255
-ADDRESS23=172.26.42.129/32
+ADDRESS23=172.26.42.129
 </div></code></pre>
 <p>★tbfr921vの場合</p>
 <pre class="hljs"><code><div>## ascot1-01-01v
 GATEWAY15=172.21.96.1
 NETMASK15=255.255.255.255
-ADDRESS15=172.26.42.121/32
+ADDRESS15=172.26.42.121
 
 ## ascot1-01-02v
 GATEWAY16=172.21.96.1
 NETMASK16=255.255.255.255
-ADDRESS16=172.26.42.122/32
+ADDRESS16=172.26.42.122
 
 ## ascot1-01-03v
 GATEWAY17=172.21.96.1
 NETMASK17=255.255.255.255
-ADDRESS17=172.26.42.123/32
+ADDRESS17=172.26.42.123
 
 ## ascot1-01-04v
 GATEWAY18=172.21.96.1
 NETMASK18=255.255.255.255
-ADDRESS18=172.26.42.124/32
+ADDRESS18=172.26.42.124
 
 ## Reserved IP Address for AccessCheck-1
 GATEWAY19=172.21.96.1
 NETMASK19=255.255.255.255
-ADDRESS19=172.26.42.126/32
+ADDRESS19=172.26.42.126
 
 ## Reserved IP Address for AccessCheck-2
 GATEWAY20=172.21.96.1
 NETMASK20=255.255.255.255
-ADDRESS20=172.26.42.127/32
+ADDRESS20=172.26.42.127
 
 ## Reserved IP Address for AccessCheck-3
 GATEWAY21=172.21.96.1
 NETMASK21=255.255.255.255
-ADDRESS21=172.26.42.128/32
+ADDRESS21=172.26.42.128
 
 ## Reserved IP Address for AccessCheck-4
 GATEWAY22=172.21.96.1
 NETMASK22=255.255.255.255
-ADDRESS22=172.26.42.129/32
+ADDRESS22=172.26.42.129
 </div></code></pre>
 <p>★tbfr931vの場合</p>
 <pre class="hljs"><code><div>## ascot1-01-01v
 GATEWAY11=172.21.96.1
 NETMASK11=255.255.255.255
-ADDRESS11=172.26.42.121/32
+ADDRESS11=172.26.42.121
 
 ## ascot1-01-02v
 GATEWAY12=172.21.96.1
 NETMASK12=255.255.255.255
-ADDRESS12=172.26.42.122/32
+ADDRESS12=172.26.42.122
 
 ## ascot1-01-03v
 GATEWAY13=172.21.96.1
 NETMASK13=255.255.255.255
-ADDRESS13=172.26.42.123/32
+ADDRESS13=172.26.42.123
 
 ## ascot1-01-04v
 GATEWAY14=172.21.96.1
 NETMASK14=255.255.255.255
-ADDRESS14=172.26.42.124/32
+ADDRESS14=172.26.42.124
 
 ## Reserved IP Address for AccessCheck-1
 GATEWAY15=172.21.96.1
 NETMASK15=255.255.255.255
-ADDRESS15=172.26.42.126/32
+ADDRESS15=172.26.42.126
 
 ## Reserved IP Address for AccessCheck-2
 GATEWAY16=172.21.96.1
 NETMASK16=255.255.255.255
-ADDRESS16=172.26.42.127/32
+ADDRESS16=172.26.42.127
 
 ## Reserved IP Address for AccessCheck-3
 GATEWAY17=172.21.96.1
 NETMASK17=255.255.255.255
-ADDRESS17=172.26.42.128/32
+ADDRESS17=172.26.42.128
 
 ## Reserved IP Address for AccessCheck-4
 GATEWAY18=172.21.96.1
 NETMASK18=255.255.255.255
-ADDRESS18=172.26.42.129/32
+ADDRESS18=172.26.42.129
 </div></code></pre>
 <p>差分確認<br>
 ★変更箇所のみ差分が出力されることを確認</p>
@@ -639,19 +619,19 @@ ADDRESS18=172.26.42.129/32
 </div></code></pre>
 <p>★確認するIP</p>
 <ul>
-<li>172.26.42.121/32</li>
-<li>172.26.42.122/32</li>
-<li>172.26.42.123/32</li>
-<li>172.26.42.124/32</li>
-<li>172.26.42.126/32</li>
-<li>172.26.42.127/32</li>
-<li>172.26.42.128/32</li>
-<li>172.26.42.129/32</li>
+<li>172.26.42.121</li>
+<li>172.26.42.122</li>
+<li>172.26.42.123</li>
+<li>172.26.42.124</li>
+<li>172.26.42.126</li>
+<li>172.26.42.127</li>
+<li>172.26.42.128</li>
+<li>172.26.42.129</li>
 </ul>
 </li>
 <li>
 <p>設定反映</p>
-<pre class="hljs"><code><div>/etc/sysconfig/network-scripts/ifup-routes ens192
+<pre class="hljs"><code><div>/etc/sysconfig/network-scripts/ifup-routes eth1
 </div></code></pre>
 </li>
 <li>
@@ -661,14 +641,14 @@ ADDRESS18=172.26.42.129/32
 </div></code></pre>
 <p>★確認するIP</p>
 <ul>
-<li>172.26.42.121/32</li>
-<li>172.26.42.122/32</li>
-<li>172.26.42.123/32</li>
-<li>172.26.42.124/32</li>
-<li>172.26.42.126/32</li>
-<li>172.26.42.127/32</li>
-<li>172.26.42.128/32</li>
-<li>172.26.42.129/32</li>
+<li>172.26.42.121</li>
+<li>172.26.42.122</li>
+<li>172.26.42.123</li>
+<li>172.26.42.124</li>
+<li>172.26.42.126</li>
+<li>172.26.42.127</li>
+<li>172.26.42.128</li>
+<li>172.26.42.129</li>
 </ul>
 </li>
 <li>
@@ -706,37 +686,14 @@ ADDRESS18=172.26.42.129/32
 <pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.129
 </div></code></pre>
 </li>
-</ol>
-<hr>
-<h2 id="99-%E4%BA%8B%E5%BE%8C%E4%BD%9C%E6%A5%AD">99. 事後作業</h2>
-<hr>
-<ol>
 <li>
 <p>システムログ確認</p>
 <pre class="hljs"><code><div>cat /var/log/messages | egrep -i &quot;error|warn|crit|fail|fatal|panic|alert|alarm|emerg&quot;
 </div></code></pre>
 </li>
-<li>
-<p>動作確認<br>
-以下のページにアクセスできることを確認</p>
-<ul>
-<li>tbfr901v(s01)</li>
-<li>bae-dev.benesse.ne.jp</li>
-<li>tbfr901v(s03)</li>
-<li>bae-dev-staging.benesse.ne.jp</li>
-<li>tbfr921v(s01)</li>
-<li>bae-dev-staging.benesse.ne.jp</li>
-<li>tbfr931v</li>
-<li></li>
-</ul>
-</li>
-<li>
-<p>作業終了連絡<br>
-関係者に作業終了の連絡を行う</p>
-</li>
 </ol>
 <hr>
-<h2 id="4-%E4%BA%8B%E5%BE%8C%E4%BD%9C%E6%A5%AD">4. 事後作業</h2>
+<h2 id="99-%E4%BA%8B%E5%BE%8C%E4%BD%9C%E6%A5%AD">99. 事後作業</h2>
 <hr>
 <ol>
 <li>
@@ -746,12 +703,16 @@ exit
 </div></code></pre>
 </li>
 <li>
+<p>サーバログイン確認
+新AccessCheck経由でサーバにログインできることを確認する</p>
+</li>
+<li>
 <p>作業完了連絡
 依頼者に変更完了の連絡を行う</p>
 </li>
 <li>
 <p>作業エビデンス格納
-作業エビデンスをCAB資料格納先に保存する</p>
+作業エビデンスを資料格納先に保存する</p>
 </li>
 </ol>
 

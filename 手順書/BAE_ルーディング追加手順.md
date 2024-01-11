@@ -15,20 +15,6 @@
 1. 作業開始連絡  
     関係者に作業開始の連絡を行う
 
-2. 監視外連絡  
-    オペレーター宛にに監視外の連絡を行う
-
-3. 動作確認<br>
-   以下のページにアクセスできることを確認
-   - tbfr901v(s01)
-   - bae-dev.benesse.ne.jp
-   - tbfr901v(s03)
-   - bae-dev-staging.benesse.ne.jp
-   - tbfr921v(s01)
-   - bae-dev-staging.benesse.ne.jp
-   - tbfr931v
-   - 
-
 -----------------------------------------------------------------------------------
 ## 2. サーバログイン
 -----------------------------------------------------------------------------------
@@ -57,39 +43,7 @@
 -----------------------------------------------------------------------------------
 ## 3. 新AccessCheckとのルーティング追加
 -----------------------------------------------------------------------------------
-1. 新AccessCheckとの通信確認<br>
-   ★通信できないこと(exit code:28で返ってくる)を確認
-   - ascot1-01-01v
-   ```
-   curl --max-time 10 https://172.26.42.121
-   ```
-   - ascot1-01-02v
-   ```
-   curl --max-time 10 https://172.26.42.122
-   ```
-   - ascot1-01-03v
-   ```
-   curl --max-time 10 https://172.26.42.123
-   ```
-   - ascot1-01-04v
-   ```
-   curl --max-time 10 https://172.26.42.124
-   ```
-   - 予備IP
-   ```
-   curl --max-time 10 https://172.26.42.126
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.127
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.128
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.129
-   ```
-
-2. バックアップ取得<br>
+1. バックアップ取得<br>
    ```
    cp -p /etc/sysconfig/network-scripts/route-eth1 /etc/sysconfig/network-scripts/_route-eth1.`date '+%Y%m%d'`
    ```
@@ -99,7 +53,7 @@
    diff /etc/sysconfig/network-scripts/route-eth1 /etc/sysconfig/network-scripts/_route-eth1.`date '+%Y%m%d'`
    ```
 
-3. ルーティング追加<br>
+2. ルーティング追加<br>
    route-eth1を編集する
    ```
    vi /etc/sysconfig/network-scripts/route-eth1
@@ -110,42 +64,42 @@
    ## ascot1-01-01v
    GATEWAY16=172.21.96.1
    NETMASK16=255.255.255.255
-   ADDRESS16=172.26.42.121/32
+   ADDRESS16=172.26.42.121
 
    ## ascot1-01-02v
    GATEWAY17=172.21.96.1
    NETMASK17=255.255.255.255
-   ADDRESS17=172.26.42.122/32
+   ADDRESS17=172.26.42.122
 
    ## ascot1-01-03v
    GATEWAY18=172.21.96.1
    NETMASK18=255.255.255.255
-   ADDRESS18=172.26.42.123/32
+   ADDRESS18=172.26.42.123
 
    ## ascot1-01-04v
    GATEWAY19=172.21.96.1
    NETMASK19=255.255.255.255
-   ADDRESS19=172.26.42.124/32
+   ADDRESS19=172.26.42.124
 
    ## Reserved IP Address for AccessCheck-1
    GATEWAY20=172.21.96.1
    NETMASK20=255.255.255.255
-   ADDRESS20=172.26.42.126/32
+   ADDRESS20=172.26.42.126
 
    ## Reserved IP Address for AccessCheck-2
    GATEWAY21=172.21.96.1
    NETMASK21=255.255.255.255
-   ADDRESS21=172.26.42.127/32
+   ADDRESS21=172.26.42.127
 
    ## Reserved IP Address for AccessCheck-3
    GATEWAY22=172.21.96.1
    NETMASK22=255.255.255.255
-   ADDRESS22=172.26.42.128/32
+   ADDRESS22=172.26.42.128
 
    ## Reserved IP Address for AccessCheck-4
    GATEWAY23=172.21.96.1
    NETMASK23=255.255.255.255
-   ADDRESS23=172.26.42.129/32
+   ADDRESS23=172.26.42.129
    ```
    
    ★tbfr921vの場合
@@ -153,42 +107,42 @@
    ## ascot1-01-01v
    GATEWAY15=172.21.96.1
    NETMASK15=255.255.255.255
-   ADDRESS15=172.26.42.121/32
+   ADDRESS15=172.26.42.121
 
    ## ascot1-01-02v
    GATEWAY16=172.21.96.1
    NETMASK16=255.255.255.255
-   ADDRESS16=172.26.42.122/32
+   ADDRESS16=172.26.42.122
 
    ## ascot1-01-03v
    GATEWAY17=172.21.96.1
    NETMASK17=255.255.255.255
-   ADDRESS17=172.26.42.123/32
+   ADDRESS17=172.26.42.123
 
    ## ascot1-01-04v
    GATEWAY18=172.21.96.1
    NETMASK18=255.255.255.255
-   ADDRESS18=172.26.42.124/32
+   ADDRESS18=172.26.42.124
 
    ## Reserved IP Address for AccessCheck-1
    GATEWAY19=172.21.96.1
    NETMASK19=255.255.255.255
-   ADDRESS19=172.26.42.126/32
+   ADDRESS19=172.26.42.126
 
    ## Reserved IP Address for AccessCheck-2
    GATEWAY20=172.21.96.1
    NETMASK20=255.255.255.255
-   ADDRESS20=172.26.42.127/32
+   ADDRESS20=172.26.42.127
 
    ## Reserved IP Address for AccessCheck-3
    GATEWAY21=172.21.96.1
    NETMASK21=255.255.255.255
-   ADDRESS21=172.26.42.128/32
+   ADDRESS21=172.26.42.128
 
    ## Reserved IP Address for AccessCheck-4
    GATEWAY22=172.21.96.1
    NETMASK22=255.255.255.255
-   ADDRESS22=172.26.42.129/32
+   ADDRESS22=172.26.42.129
    ```
 
    ★tbfr931vの場合
@@ -196,42 +150,42 @@
    ## ascot1-01-01v
    GATEWAY11=172.21.96.1
    NETMASK11=255.255.255.255
-   ADDRESS11=172.26.42.121/32
+   ADDRESS11=172.26.42.121
 
    ## ascot1-01-02v
    GATEWAY12=172.21.96.1
    NETMASK12=255.255.255.255
-   ADDRESS12=172.26.42.122/32
+   ADDRESS12=172.26.42.122
 
    ## ascot1-01-03v
    GATEWAY13=172.21.96.1
    NETMASK13=255.255.255.255
-   ADDRESS13=172.26.42.123/32
+   ADDRESS13=172.26.42.123
 
    ## ascot1-01-04v
    GATEWAY14=172.21.96.1
    NETMASK14=255.255.255.255
-   ADDRESS14=172.26.42.124/32
+   ADDRESS14=172.26.42.124
 
    ## Reserved IP Address for AccessCheck-1
    GATEWAY15=172.21.96.1
    NETMASK15=255.255.255.255
-   ADDRESS15=172.26.42.126/32
+   ADDRESS15=172.26.42.126
 
    ## Reserved IP Address for AccessCheck-2
    GATEWAY16=172.21.96.1
    NETMASK16=255.255.255.255
-   ADDRESS16=172.26.42.127/32
+   ADDRESS16=172.26.42.127
 
    ## Reserved IP Address for AccessCheck-3
    GATEWAY17=172.21.96.1
    NETMASK17=255.255.255.255
-   ADDRESS17=172.26.42.128/32
+   ADDRESS17=172.26.42.128
 
    ## Reserved IP Address for AccessCheck-4
    GATEWAY18=172.21.96.1
    NETMASK18=255.255.255.255
-   ADDRESS18=172.26.42.129/32
+   ADDRESS18=172.26.42.129
    ```
 
    差分確認<br>
@@ -240,97 +194,48 @@
    diff /etc/sysconfig/network-scripts/route-eth1 /etc/sysconfig/network-scripts/_route-eth1.`date '+%Y%m%d'`
    ```
 
-4. 設定反映前ルーティング確認<br>
+3. 設定反映前ルーティング確認<br>
    ★追加したIPがないことを確認
    ```
    netstat -nr
    ```
    ★確認するIP
-   - 172.26.42.121/32
-   - 172.26.42.122/32
-   - 172.26.42.123/32
-   - 172.26.42.124/32
-   - 172.26.42.126/32
-   - 172.26.42.127/32
-   - 172.26.42.128/32
-   - 172.26.42.129/32
+   - 172.26.42.121
+   - 172.26.42.122
+   - 172.26.42.123
+   - 172.26.42.124
+   - 172.26.42.126
+   - 172.26.42.127
+   - 172.26.42.128
+   - 172.26.42.129
 
-5. 設定反映
+4. 設定反映
    ```
-   /etc/sysconfig/network-scripts/ifup-routes ens192
+   /etc/sysconfig/network-scripts/ifup-routes eth1
    ```
 
-6. 設定反映後ルーティング確認<br>
+5. 設定反映後ルーティング確認<br>
    ★追加したIPがあることを確認
    ```
    netstat -nr
    ```
    ★確認するIP
-   - 172.26.42.121/32
-   - 172.26.42.122/32
-   - 172.26.42.123/32
-   - 172.26.42.124/32
-   - 172.26.42.126/32
-   - 172.26.42.127/32
-   - 172.26.42.128/32
-   - 172.26.42.129/32
+   - 172.26.42.121
+   - 172.26.42.122
+   - 172.26.42.123
+   - 172.26.42.124
+   - 172.26.42.126
+   - 172.26.42.127
+   - 172.26.42.128
+   - 172.26.42.129
 
-7. ルーティング追加後、新認証基盤(検証)との通信確認<br>
-   ★通信できること(exit code:0で返ってくる)を確認
-   - ascot1-01-01v
-   ```
-   curl --max-time 10 https://172.26.42.121
-   ```
-   - ascot1-01-02v
-   ```
-   curl --max-time 10 https://172.26.42.122
-   ```
-   - ascot1-01-03v
-   ```
-   curl --max-time 10 https://172.26.42.123
-   ```
-   - ascot1-01-04v
-   ```
-   curl --max-time 10 https://172.26.42.124
-   ```
-   - 予備IP
-   ```
-   curl --max-time 10 https://172.26.42.126
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.127
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.128
-   ```
-   ```
-   curl --max-time 10 https://172.26.42.129
-   ```
-
------------------------------------------------------------------------------------
-## 99. 事後作業
------------------------------------------------------------------------------------
-1. システムログ確認
+6. システムログ確認
    ```
    cat /var/log/messages | egrep -i "error|warn|crit|fail|fatal|panic|alert|alarm|emerg"
    ```
 
-2. 動作確認<br>
-   以下のページにアクセスできることを確認
-   - tbfr901v(s01)
-   - bae-dev.benesse.ne.jp
-   - tbfr901v(s03)
-   - bae-dev-staging.benesse.ne.jp
-   - tbfr921v(s01)
-   - bae-dev-staging.benesse.ne.jp
-   - tbfr931v
-   - 
-
-3. 作業終了連絡<br>
-   関係者に作業終了の連絡を行う
-
 -----------------------------------------------------------------------------------
-## 4. 事後作業
+## 99. 事後作業
 -----------------------------------------------------------------------------------
 1. Tera Termからログアウトする
    ```
@@ -338,8 +243,12 @@
    exit
    ```
 
-2. 作業完了連絡
-    依頼者に変更完了の連絡を行う
+2. サーバログイン確認
+   新AccessCheck経由でサーバにログインできることを確認する
+   ホスト(T)：ac10
 
-3. 作業エビデンス格納
-    作業エビデンスをCAB資料格納先に保存する
+3. 作業完了連絡
+   依頼者に変更完了の連絡を行う
+
+4. 作業エビデンス格納
+   作業エビデンスを資料格納先に保存する
