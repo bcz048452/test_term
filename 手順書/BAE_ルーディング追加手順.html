@@ -435,41 +435,6 @@ code {
 <hr>
 <ol>
 <li>
-<p>新AccessCheckとの通信確認<br>
-★通信できないこと(exit code:28で返ってくる)を確認</p>
-<ul>
-<li>ascot1-01-01v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.121
-</div></code></pre>
-<ul>
-<li>ascot1-01-02v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.122
-</div></code></pre>
-<ul>
-<li>ascot1-01-03v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.123
-</div></code></pre>
-<ul>
-<li>ascot1-01-04v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.124
-</div></code></pre>
-<ul>
-<li>予備IP</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.126
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.127
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.128
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.129
-</div></code></pre>
-</li>
-<li>
 <p>バックアップ取得<br></p>
 <pre class="hljs"><code><div>cp -p /etc/sysconfig/network-scripts/route-eth1 /etc/sysconfig/network-scripts/_route-eth1.`date '+%Y%m%d'`
 </div></code></pre>
@@ -652,41 +617,6 @@ ADDRESS18=172.26.42.129
 </ul>
 </li>
 <li>
-<p>ルーティング追加後、新認証基盤(検証)との通信確認<br>
-★通信できること(exit code:0で返ってくる)を確認</p>
-<ul>
-<li>ascot1-01-01v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.121
-</div></code></pre>
-<ul>
-<li>ascot1-01-02v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.122
-</div></code></pre>
-<ul>
-<li>ascot1-01-03v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.123
-</div></code></pre>
-<ul>
-<li>ascot1-01-04v</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.124
-</div></code></pre>
-<ul>
-<li>予備IP</li>
-</ul>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.126
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.127
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.128
-</div></code></pre>
-<pre class="hljs"><code><div>curl --max-time 10 https://172.26.42.129
-</div></code></pre>
-</li>
-<li>
 <p>システムログ確認</p>
 <pre class="hljs"><code><div>cat /var/log/messages | egrep -i &quot;error|warn|crit|fail|fatal|panic|alert|alarm|emerg&quot;
 </div></code></pre>
@@ -704,7 +634,8 @@ exit
 </li>
 <li>
 <p>サーバログイン確認
-新AccessCheck経由でサーバにログインできることを確認する</p>
+新AccessCheck経由でサーバにログインできることを確認する
+ホスト(T)：ac10</p>
 </li>
 <li>
 <p>作業完了連絡
