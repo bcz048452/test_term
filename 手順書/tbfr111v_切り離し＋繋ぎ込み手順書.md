@@ -50,13 +50,13 @@
 7. tbfr111vアクセスログ確認<br>
    別タブでtbfr111vにログインし、アクセスログが流れる状態にしておく
    ```
-   tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$1,$7,$9,$10,$12}'
+   tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$5,$1,$6,$7,$9,$11}'
    ```
 
 8. tbfr191vアクセスログ確認<br>
    別タブでtbfr191vにログインし、アクセスログが流れる状態にしておく
    ```
-   tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$1,$7,$9,$10,$12}'
+   tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$5,$1,$6,$7,$9,$11}'
    ```
 
 -----------------------------------------------------------------------------------
