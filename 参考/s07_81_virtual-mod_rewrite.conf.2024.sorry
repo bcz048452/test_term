@@ -29,15 +29,8 @@
     RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.149$
     RewriteCond %{REMOTE_ADDR} !^153\.156\.171\.83$
     RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.152$
-    ###RewriteCond %{REMOTE_ADDR} !^152\.165\.118\.145$
     RewriteCond %{REMOTE_ADDR} !^52\.193\.131\.15$
     RewriteCond %{REMOTE_ADDR} !^118\.238\.220\.136$
-    ###RewriteCond %{REMOTE_ADDR} !^60\.115\.100\.68$
-    ###RewriteCond %{REMOTE_ADDR} !^198\.144\.175\.155$
-    ###RewriteCond %{REMOTE_ADDR} !^122\.216\.3\.58$
-    ###RewriteCond %{REMOTE_ADDR} !^122\.216\.3\.50$
-    ###RewriteCond %{REMOTE_ADDR} !^125\.103\.15\.194$
-    ###RewriteCond %{REMOTE_ADDR} !^125\.103\.15\.198$
     RewriteCond %{REMOTE_ADDR} !^114\.156\.131\.207$
     RewriteCond %{REMOTE_ADDR} !^153\.156\.46\.53$
     # 20230228追加_グローバルIPアドレス追加_BSH高柳
@@ -58,7 +51,7 @@
     RewriteCond %{REMOTE_ADDR} !^111\.239\.163\.160$
     RewriteCond %{REMOTE_ADDR} !^122\.249\.238\.41$
     # 20240215追加_グローバルIPアドレス追加_bravesoft
-    RewriteCond %{REMOTE_ADDR} !^113\.169\.89\.2$
+    RewriteCond %{REMOTE_ADDR} !^113\.161\.89\.2$
     RewriteCond %{REMOTE_ADDR} !^115\.73\.217\.209$
     RewriteCond %{REMOTE_ADDR} !^115\.79\.143\.138$
     

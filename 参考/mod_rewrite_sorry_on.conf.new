@@ -1,6 +1,3 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    LogLevel alert
     RewriteCond "%{REQUEST_URI}" "^/api/"
     RewriteCond %{HTTP:Origin} (https?://([a-zA-Z0-9\-\.]+\.)?(benesse\.ne\.jp)(:[0-9]+)?)$
     RewriteRule . - [E=CORS_ORIGIN:%1]
@@ -86,6 +83,3 @@
 
     RewriteCond %{QUERY_STRING} KBN=([2-5])&CODE=([0-9]+)$
     RewriteRule ^/navi/report/$ https://%{HTTP_HOST}/navi/report/%1/%2_01.html? [R=301,L]
-</IfModule>
-
-
