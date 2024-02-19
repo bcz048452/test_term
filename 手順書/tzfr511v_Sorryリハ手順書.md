@@ -149,7 +149,12 @@
    ps -efwww | grep httpd | grep s01
    ```
 
-8. アクセスログ確認<br>
+8. apacheエラーログ確認
+   ```
+   tail -100 /var/log/s07/apache/logs/error_log.`date '+%Y%m%d'`
+   ```
+
+9. アクセスログ確認<br>
    ★400系が返ってくること
    ```
    tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$5,$1,$6,$7,$9,$11}'

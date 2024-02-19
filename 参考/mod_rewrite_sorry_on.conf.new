@@ -1,0 +1,91 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    LogLevel alert
+    RewriteCond "%{REQUEST_URI}" "^/api/"
+    RewriteCond %{HTTP:Origin} (https?://([a-zA-Z0-9\-\.]+\.)?(benesse\.ne\.jp)(:[0-9]+)?)$
+    RewriteRule . - [E=CORS_ORIGIN:%1]
+    Header set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
+    Header set Access-Control-Allow-Credentials true env=CORS_ORIGIN
+    Header set Access-Control-Allow-Headers "Content-Type,X-Api-Version,X-Caller-Id" env=CORS_ORIGIN
+
+    ErrorDocument 503 /op/sorry/index.html
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.152$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.153$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.171\.83$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.234$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.88\.168$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.149$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.232$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.88\.172$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.236$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.150$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.231$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.148$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.230$
+    RewriteCond %{HTTP:X-Forwarded-For} !^114\.156\.131\.207$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.46\.53$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.147$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.151$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.88\.170$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.88\.169$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.88\.171$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.201\.202$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.201\.205$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.156\.86\.238$
+    RewriteCond %{HTTP:X-Forwarded-For} !^153\.142\.203\.145$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.238\.225\.142$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.238\.225\.146$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.238\.225\.150$
+    RewriteCond %{HTTP:X-Forwarded-For} !^113\.36\.111\.90$
+    RewriteCond %{HTTP:X-Forwarded-For} !^113\.35\.123\.178$
+    RewriteCond %{HTTP:X-Forwarded-For} !^113\.33\.224\.82$
+    RewriteCond %{HTTP:X-Forwarded-For} !^113\.34\.78\.210$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.32\.214\.205$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.196$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.197$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.199$
+    RewriteCond %{HTTP:X-Forwarded-For} !^220\.108\.88\.84$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.208$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.209$
+    RewriteCond %{HTTP:X-Forwarded-For} !^52\.193\.131\.15$
+    RewriteCond %{HTTP:X-Forwarded-For} !^118\.238\.220\.136$
+    RewriteCond %{HTTP:X-Forwarded-For} !^115\.73\.217\.209 $
+    RewriteCond %{HTTP:X-Forwarded-For} !^115\.79\.143\.138$
+    RewriteCond %{HTTP:X-Forwarded-For} !^113\.161\.89\.2$
+    RewriteCond %{HTTP:X-Forwarded-For} !^122\.249\.238\.41$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.239\.163\.160$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.238\.226\.222$
+    RewriteCond %{HTTP:X-Forwarded-For} !^111\.238\.226\.226$
+    RewriteCond %{HTTP:X-Forwarded-For} !^126\.249\.58\.54$
+    RewriteCond %{HTTP:X-Forwarded-For} !^126\.249\.58\.78$
+    RewriteCond %{HTTP:X-Forwarded-For} !^172\.24\.49\.51$
+    RewriteCond %{HTTP:X-Forwarded-For} !^172\.24\.49\.52$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.193$
+    RewriteCond %{HTTP:X-Forwarded-For} !^202\.241\.174\.194$
+
+    RewriteCond %{REQUEST_URI} !^/op/sorry/index\.html$
+
+    RewriteRule ^.*$ - [R=503,L]
+
+    RewriteRule /options-ok.txt - [L]
+
+    RewriteCond "%{REQUEST_URI}" "^/api/"
+    RewriteCond %{REQUEST_METHOD} ^OPTIONS$
+    RewriteRule ^/api /options-ok.txt    [PT]
+
+    RewriteCond "%{REQUEST_URI}" "^/v2/"
+    RewriteCond %{HTTP:Origin} (https?://.*)$
+    RewriteRule . - [E=CORS_ORIGIN_V2:%1]
+    Header set Access-Control-Allow-Origin "%{CORS_ORIGIN_V2}e" env=CORS_ORIGIN_V2
+    Header set Access-Control-Allow-Credentials true env=CORS_ORIGIN_V2
+    Header set Access-Control-Allow-Headers "Content-Type" env=CORS_ORIGIN_V2
+
+
+    RewriteCond %{QUERY_STRING} KBN=([2-5])&CODE=([0-9]+)&EDA=([0-9]+)$
+    RewriteRule ^/navi/report/(.*)$ https://%{HTTP_HOST}/navi/report/%1/%2_%3.html? [R=301,L]
+
+    RewriteCond %{QUERY_STRING} KBN=([2-5])&CODE=([0-9]+)$
+    RewriteRule ^/navi/report/$ https://%{HTTP_HOST}/navi/report/%1/%2_01.html? [R=301,L]
+</IfModule>
+
+
