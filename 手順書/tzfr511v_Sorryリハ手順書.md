@@ -222,7 +222,7 @@
    tail -100 /var/log/s01/apache/logs/error_log.`date '+%Y%m%d'`
    ```
 
-9.  アクセスログ確認<br>
+9. アクセスログ確認<br>
    ★200系が返ってくること
    ```
    tail -f /var/log/s01/apache/ssl_logs/s01_81_ssl_access_log.`date '+%Y%m%d'` | awk '{print $4,$5,$1,$6,$7,$9,$11}'
