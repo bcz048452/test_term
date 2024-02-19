@@ -1,0 +1,67 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    LogLevel alert
+    RewriteCond %{REMOTE_ADDR} !^202\.241\.174\.199$
+    RewriteCond %{REMOTE_ADDR} !^202\.241\.174\.196$
+    RewriteCond %{REMOTE_ADDR} !^202\.241\.174\.197$
+    RewriteCond %{REMOTE_ADDR} !^220\.108\.88\.84$
+    RewriteCond %{REMOTE_ADDR} !^202\.241\.174\.208$
+    RewriteCond %{REMOTE_ADDR} !^202\.241\.174\.209$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.145$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.201\.202$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.201\.205$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.88\.170$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.88\.169$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.86\.238$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.88\.171$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.147$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.151$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.148$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.230$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.150$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.231$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.236$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.234$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.88\.168$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.153$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.232$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.88\.172$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.149$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.171\.83$
+    RewriteCond %{REMOTE_ADDR} !^153\.142\.203\.152$
+    ###RewriteCond %{REMOTE_ADDR} !^152\.165\.118\.145$
+    RewriteCond %{REMOTE_ADDR} !^52\.193\.131\.15$
+    RewriteCond %{REMOTE_ADDR} !^118\.238\.220\.136$
+    ###RewriteCond %{REMOTE_ADDR} !^60\.115\.100\.68$
+    ###RewriteCond %{REMOTE_ADDR} !^198\.144\.175\.155$
+    ###RewriteCond %{REMOTE_ADDR} !^122\.216\.3\.58$
+    ###RewriteCond %{REMOTE_ADDR} !^122\.216\.3\.50$
+    ###RewriteCond %{REMOTE_ADDR} !^125\.103\.15\.194$
+    ###RewriteCond %{REMOTE_ADDR} !^125\.103\.15\.198$
+    RewriteCond %{REMOTE_ADDR} !^114\.156\.131\.207$
+    RewriteCond %{REMOTE_ADDR} !^153\.156\.46\.53$
+    # 20230228追加_グローバルIPアドレス追加_BSH高柳
+    RewriteCond %{REMOTE_ADDR} !^111\.238\.226\.222$
+    RewriteCond %{REMOTE_ADDR} !^111\.238\.226\.226$
+    RewriteCond %{REMOTE_ADDR} !^126\.249\.58\.54$
+    RewriteCond %{REMOTE_ADDR} !^126\.249\.58\.78$
+    # 20230228作業後追加_多摩1ビルIPアドレス追加
+    RewriteCond %{REMOTE_ADDR} !^111\.238\.225\.142$
+    RewriteCond %{REMOTE_ADDR} !^111\.238\.225\.146$
+    RewriteCond %{REMOTE_ADDR} !^111\.238\.225\.150$
+    RewriteCond %{REMOTE_ADDR} !^113\.36\.111\.90$
+    RewriteCond %{REMOTE_ADDR} !^113\.35\.123\.178$
+    RewriteCond %{REMOTE_ADDR} !^113\.33\.224\.82$
+    RewriteCond %{REMOTE_ADDR} !^113\.34\.78\.210$
+    RewriteCond %{REMOTE_ADDR} !^202\.32\.214\.205$
+    # 20240215追加_グローバルIPアドレス追加_SELF
+    RewriteCond %{REMOTE_ADDR} !^111\.239\.163\.160$
+    RewriteCond %{REMOTE_ADDR} !^122\.249\.238\.41$
+    # 20240215追加_グローバルIPアドレス追加_bravesoft
+    RewriteCond %{REMOTE_ADDR} !^113\.169\.89\.2$
+    RewriteCond %{REMOTE_ADDR} !^115\.73\.217\.209$
+    RewriteCond %{REMOTE_ADDR} !^115\.79\.143\.138$
+    
+
+    RewriteRule (.*)$ https://sorry.benesse.ne.jp/d-t/index.html [R=302,L]
+</IfModule>
