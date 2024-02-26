@@ -449,14 +449,14 @@ route-ens224を編集する</p>
 <pre class="hljs"><code><div>vi /etc/sysconfig/network-scripts/route-ens224
 </div></code></pre>
 <p>ファイルの最下部に以下の記述を追加する<br></p>
-<pre class="hljs"><code><div>172.26.42.121 via 172.22.4.1 dev ens224
-172.26.42.122 via 172.22.4.1 dev ens224
-172.26.42.123 via 172.22.4.1 dev ens224
-172.26.42.124 via 172.22.4.1 dev ens224
-172.26.42.126 via 172.22.4.1 dev ens224
-172.26.42.127 via 172.22.4.1 dev ens224
-172.26.42.128 via 172.22.4.1 dev ens224
-172.26.42.129 via 172.22.4.1 dev ens224
+<pre class="hljs"><code><div>172.26.42.121/32 via 172.22.4.1 dev ens224
+172.26.42.122/32 via 172.22.4.1 dev ens224
+172.26.42.123/32 via 172.22.4.1 dev ens224
+172.26.42.124/32 via 172.22.4.1 dev ens224
+172.26.42.126/32 via 172.22.4.1 dev ens224
+172.26.42.127/32 via 172.22.4.1 dev ens224
+172.26.42.128/32 via 172.22.4.1 dev ens224
+172.26.42.129/32 via 172.22.4.1 dev ens224
 </div></code></pre>
 <p>差分確認<br>
 ★変更箇所のみ差分が出力されることを確認</p>
