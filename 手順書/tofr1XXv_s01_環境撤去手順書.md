@@ -5,15 +5,18 @@
 -----------------------------------------------------------------------------------
 |#|項目|内容|
 |:--|:--|:--|
-|1|対象システム|Hybrid講座システム 特別教材マルチOS|
-|2|対象ホスト|tofr106v,tofr107v,tofr108v,tofr109v,tofr111v,tofr121v,tofr122v|
+|1|対象システム|Hybrid講座システム 中ゼミ特別教材システム|
+|2|対象ホスト|tofr101v,tofr102v,tofr103v,tofr104v,tofr105v,tofr106v,tofr107v,tofr108v,tofr109v,tofr111v,tofr121v,tofr122v|
 |3|作業予定日|2024/03/19|
 
 -----------------------------------------------------------------------------------
 ## 1. 事前作業
 -----------------------------------------------------------------------------------
 1. 作業開始連絡  
-    関係者に作業開始の連絡を行う
+   関係者に作業開始の連絡を行う
+
+2. 監視外連絡
+   オペレータ宛に対象サーバの監視外連絡を行う
 
 -----------------------------------------------------------------------------------
 ## 2. サーバログイン
@@ -21,9 +24,9 @@
 1. Tera Termにログインする
 
 2. root権限へ昇格する
-    ```
-    su -
-    ```
+   ```
+   su -
+   ```
 
 3. ログイン先のサーバ名を確認する
    ```
@@ -47,10 +50,17 @@
    ★NodeがPrimaryであることを確認
    - http://192.168.58.20/menu/neo　※セカンダリ
    - http://192.168.58.21/menu/neo
-  
+
 2. 負荷分散状態確認<br>
    Traffic Management > Load Balancing > Servers を選択<br>
-   Searchより"tofr106v|tofr107v|tofr108v|tofr109v|tofr111v|tofr121v|tofr122v"を選択<br>
+   Searchより対象ホストを選択<br>
+   ★「to_s01削除チェックリスト」を参照の元対象を選択
+   ```
+   1回目："tofr121vp1|tofr122vp1"
+   2回目："tofr111vp1"
+   3回目："tofr101vp1|tofr102vp1|tofr103vp1|tofr104vp1|tofr105vp1"
+   4回目："tofr106vp1|tofr107vp1|tofr108vp1|tofr109vp1"
+   ```
    ★State欄が「Enabled」であること　※Disabledの場合切り離し不要
    ![Alt text](image/image.png)
    
@@ -58,7 +68,7 @@
    対象設定を選択し、右クリック。<br>
    Disableを選択し切り離しを実施。<br>
    ★Disableであることを確認
-   ![Alt text](image/image1.png)
+   ![Alt text](image/image-1.png)
 
 -----------------------------------------------------------------------------------
 ## 4. Apache Tomcat停止
@@ -136,7 +146,8 @@
    diff /etc/opt/svmon/ProcessMonitor.txt /etc/opt/svmon/ProcessMonitor.txt.`date '+%Y%m%d'`
    ```
 
-2. ProcessMonitor.txt内s01を含む設定削除
+2. ProcessMonitor.txt内s01を含む設定削除<br>
+   ★「プロセス監視設定削除対象」ファイルを参照に削除する
    ```
    vi ProcessMonitor.txt
    ```
@@ -147,19 +158,27 @@
    diff /etc/opt/svmon/ProcessMonitor.txt /etc/opt/svmon/ProcessMonitor.txt.`date '+%Y%m%d'`
    ```
 
+4. バックアップへ上書きコピー
+   ```
+   cp -p /etc/opt/svmon/ProcessMonitor.txt /etc/opt/svmon/ProcessMonitor_bak.txt
+   ```
+   ★コピー後に差分がないことを確認
+   ```
+   diff /etc/opt/svmon/ProcessMonitor.txt /etc/opt/svmon/ProcessMonitor_bak.txt
+   ```
+
 -----------------------------------------------------------------------------------
 ## 7. コンテンツディレクトリリネーム
 -----------------------------------------------------------------------------------
 1. コンテンツディレクトリの確認
    ```
-   ll /nas/share/web/s01_*/apache/
-   ```
-   ```
-   ll /nas/share/web/s01_*/tomcat/
+   ll /etc/init.d/ |grep s01
    ```
 
 2. リネーム<br>
-   ★「高ゼミ関連_環境一覧_2023_環境削除対象_20230911-01」ファイル参照
+   「to_s01_削除チェックリスト20240229」ファイルを参照にリネームする<br>
+   ※tofr111vは偶数・奇数環境がどちらも存在するので、s01_1,s01_2のどちらもリネームする
+   ★奇数サーバの場合
    ```
    mv /nas/share/web/s01_1/apache/cgi-bin /nas/share/web/s01_1/apache/_cgi-bin_`date '+%Y%m%d'`
    ```
@@ -175,6 +194,7 @@
    ```
    mv /nas/share/web/s01_1/tomcat/webapps /nas/share/web/s01_1/tomcat/_webapps_`date '+%Y%m%d'`
    ```
+   ★偶数サーバの場合
    ```
    mv /nas/share/web/s01_2/apache/cgi-bin /nas/share/web/s01_2/apache/_cgi-bin_`date '+%Y%m%d'`
    ```
@@ -194,10 +214,7 @@
 3. 設定削除後差分確認<br>
    ★対象ディレクトリがリネームされていることを確認
    ```
-   ll /nas/share/web/s01_*/apache/
-   ```
-   ```
-   ll /nas/share/web/s01_*/tomcat/
+   ll /etc/init.d/ |grep s01
    ```
 
 -----------------------------------------------------------------------------------
@@ -213,9 +230,12 @@
    exit
    exit
    ```
-
+   
 3. 完了連絡及び動作確認依頼<br>
    関係者に作業完了の連絡と、動作確認依頼を行う。
 
-4. 作業エビデンス格納<br>
+4. 監視外戻し連絡
+   オペレータ宛に対象サーバの監視外戻し連絡を行う
+
+5. 作業エビデンス格納<br>
    作業エビデンスを案件フォルダに保存する
