@@ -6,8 +6,8 @@
 |#|項目|内容|
 |:--|:--|:--|
 |1|対象システム|Hybrid講座システム|
-|2|対象ホスト|tofr501v,tofr502v,tofr511v,tofr521v,tofr531v,tofr901v,tofr902v|
-|3|作業予定日|2024/04/11|
+|2|対象ホスト|tofr501v,tofr502v,tofr511v,tofr521v,tofr531v,tofr901v,tofr911v|
+|3|作業予定日|2024/04/10|
 
 -----------------------------------------------------------------------------------
 ## 1. 事前作業
@@ -51,6 +51,10 @@
 2. 負荷分散状態確認<br>
    Traffic Management > Load Balancing > Servers を選択<br>
    Searchより対象ホストを選択<br>
+   ・検索文字列<br>
+      1回目："tofr501vp6|tofr501vp7|tofr502vp6|tofr502vp7"<br>
+      2回目："tofr511vp7|tofr521vp6|tofr521vp7|tofr531vp6"<br>
+      3回目："tofr901vp3|tofr901vp6|tofr901vp7|tofr911vp6"<br>
    ★「to_apa-tom停止対象調査.xlsx」を参考に対象ホストを選択<br>
    ★State欄が「Enabled」であること　※Disabledの場合切り離し不要
 
@@ -121,15 +125,6 @@
    /etc/init.d/apache-tomcat_s0X stop
    ```
 
-   ※tofr501v_s08、tofr502v_s08の場合
-   ```
-   /etc/init.d/apache_s0X stop
-   ```
-
-   ※tofr501v_s04、tofr511v_s06の場合
-   ```
-   /etc/init.d/tomcat_s0X stop
-   ```
 
 3. 停止後プロセス確認<br>
    ★Apache Tomcatが停止していることを確認

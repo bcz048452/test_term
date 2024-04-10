@@ -386,12 +386,12 @@ code {
 <tr>
 <td style="text-align:left">2</td>
 <td style="text-align:left">対象ホスト</td>
-<td style="text-align:left">tofr501v,tofr502v,tofr511v,tofr521v,tofr531v,tofr901v,tofr902v</td>
+<td style="text-align:left">tofr501v,tofr502v,tofr511v,tofr521v,tofr531v,tofr901v,tofr911v</td>
 </tr>
 <tr>
 <td style="text-align:left">3</td>
 <td style="text-align:left">作業予定日</td>
-<td style="text-align:left">2024/04/11</td>
+<td style="text-align:left">2024/04/10</td>
 </tr>
 </tbody>
 </table>
@@ -446,6 +446,10 @@ code {
 <p>負荷分散状態確認<br>
 Traffic Management &gt; Load Balancing &gt; Servers を選択<br>
 Searchより対象ホストを選択<br>
+・検索文字列<br>
+1回目：&quot;tofr501vp6|tofr501vp7|tofr502vp6|tofr502vp7&quot;<br>
+2回目：&quot;tofr511vp7|tofr521vp6|tofr521vp7|tofr531vp6&quot;<br>
+3回目：&quot;tofr901vp3|tofr901vp6|tofr901vp7|tofr911vp6&quot;<br>
 ★「to_apa-tom停止対象調査.xlsx」を参考に対象ホストを選択<br>
 ★State欄が「Enabled」であること　※Disabledの場合切り離し不要</p>
 </li>
@@ -514,12 +518,6 @@ Disableを選択し切り離しを実施。<br>
 <li>
 <p>Apache Tomcat停止</p>
 <pre class="hljs"><code><div>/etc/init.d/apache-tomcat_s0X stop
-</div></code></pre>
-<p>※tofr501v_s08、tofr502v_s08の場合</p>
-<pre class="hljs"><code><div>/etc/init.d/apache_s0X stop
-</div></code></pre>
-<p>※tofr501v_s04、tofr511v_s06の場合</p>
-<pre class="hljs"><code><div>/etc/init.d/tomcat_s0X stop
 </div></code></pre>
 </li>
 <li>
