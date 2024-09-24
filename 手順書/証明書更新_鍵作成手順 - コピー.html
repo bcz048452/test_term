@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>証明書更新_鍵作成手順.md</title>
+<title>証明書更新_鍵作成手順 - コピー.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -386,7 +386,7 @@ code {
 <tr>
 <td style="text-align:left">2</td>
 <td style="text-align:left">対象ホスト</td>
-<td style="text-align:left">monmx9-01-01v</td>
+<td style="text-align:left">monmx1-01-01v</td>
 </tr>
 <tr>
 <td style="text-align:left">3</td>
@@ -401,7 +401,7 @@ code {
 <ol>
 <li>
 <p>サーバログイン<br>
-monmx9-01-01vにログインし、rootにスイッチする</p>
+monmx1-01-01vにログインし、rootにスイッチする</p>
 </li>
 <li>
 <p>random.dat作成</p>
@@ -410,27 +410,27 @@ monmx9-01-01vにログインし、rootにスイッチする</p>
 </li>
 <li>
 <p>秘密鍵作成</p>
-<pre class="hljs"><code><div>/usr/bin/openssl genrsa -rand /tmp/random.dat -des 2048 &gt; /tmp/key_monmx9-01-01v.bc-extra.net.pem_nopass
+<pre class="hljs"><code><div>/usr/bin/openssl genrsa -rand /tmp/random.dat -des 2048 &gt; /tmp/key_monmx1-01-01v.bc-extra.net.pem_nopass
 </div></code></pre>
 </li>
 <li>
 <p>秘密鍵のパスフレーズ解除</p>
-<pre class="hljs"><code><div>/usr/bin/openssl rsa -in /tmp/key_monmx9-01-01v.bc-extra.net.pem_nopass -out /tmp/key_monmx9-01-01v.bc-extra.net.pem
+<pre class="hljs"><code><div>/usr/bin/openssl rsa -in /tmp/key_monmx1-01-01v.bc-extra.net.pem_nopass -out /tmp/key_monmx1-01-01v.bc-extra.net.pem
 </div></code></pre>
 </li>
 <li>
 <p>CSR鍵作成</p>
-<pre class="hljs"><code><div>/usr/bin/openssl req -new -key /tmp/key_monmx9-01-01v.bc-extra.net.pem -out /tmp/csr_monmx9-01-01v.bc-extra.net.pem
+<pre class="hljs"><code><div>/usr/bin/openssl req -new -key /tmp/key_monmx1-01-01v.bc-extra.net.pem -out /tmp/csr_monmx1-01-01v.bc-extra.net.pem
 </div></code></pre>
 <p>メールにあるCSR情報を入力する　※不要な設定は入力せずにEnterを押下する<br>
 ・今回の設定内容<br>
-【monmx9-01-01v.bc-extra.net】<br>
-CN（FQDN) = monmx9-01-01v.bc-extra.net<br>
+【monmx1-01-01v.bc-extra.net】<br>
+CN（FQDN) = monmx1-01-01v.bc-extra.net<br>
 O（会社名） = BENESSE CORPORATION<br>
 L（市町村名） = Okayama-shi<br>
 S（都道府県名） = Okayama<br>
 C（国名） = JP</p>
-<pre class="hljs"><code><div>[root@monmx9-01-01v ~]# /usr/bin/openssl req -new -key /tmp/key_monmx9-01-01v.bc-extra.net.pem -out /tmp/csr_monmx9-01-01v.bc-extra.net.pem
+<pre class="hljs"><code><div>[root@monmx1-01-01v ~]# /usr/bin/openssl req -new -key /tmp/key_monmx1-01-01v.bc-extra.net.pem -out /tmp/csr_monmx1-01-01v.bc-extra.net.pem
  You are about to be asked to enter information that will be incorporated
  into your certificate request.
  What you are about to enter is what is called a Distinguished Name or a DN.
@@ -443,14 +443,14 @@ C（国名） = JP</p>
  Locality Name (eg, city) [Default City]:Okayama-shi
  Organization Name (eg, company) [Default Company Ltd]:BENESSE CORPORATION
  Organizational Unit Name (eg, section) []:
- Common Name (eg, your name or your server's hostname) []:monmx9-01-01v.bc-extra.net
+ Common Name (eg, your name or your server's hostname) []:monmx1-01-01v.bc-extra.net
  Email Address []:
 
  Please enter the following 'extra' attributes
  to be sent with your certificate request
  A challenge password []:
  An optional company name []:
- [root@monmx9-01-01v ~]#
+ [root@monmx1-01-01v ~]#
 </div></code></pre>
 </li>
 <li>
@@ -461,22 +461,21 @@ ll
 </li>
 <li>
 <p>作業用にファイルコピー</p>
-<pre class="hljs"><code><div>cp csr_monmx9-01-01v.bc-extra.net.pem /tmp/bcz048452/csr_monmx9-01-01v.bc-extra.net.pem
+<pre class="hljs"><code><div>cp csr_monmx1-01-01v.bc-extra.net.pem /home/bcz048452/csr_monmx1-01-01v.bc-extra.net.pem
 </div></code></pre>
-<pre class="hljs"><code><div>cp key_monmx9-01-01v.bc-extra.net.pem /tmp/bcz048452/key_monmx9-01-01v.bc-extra.net.pem
+<pre class="hljs"><code><div>cp key_monmx1-01-01v.bc-extra.net.pem /home/bcz048452/key_monmx1-01-01v.bc-extra.net.pem
+</div></code></pre>
+</li>
+<li>
+<p>移送分を所有者変更</p>
+<pre class="hljs"><code><div>cd /home/bcz048452
+</div></code></pre>
+<pre class="hljs"><code><div>chown bcz048452 key_monmx1-01-01v.bc-extra.net.pem
+</div></code></pre>
+<pre class="hljs"><code><div>chown bcz048452 csr_monmx1-01-01v.bc-extra.net.pem
 </div></code></pre>
 </li>
 </ol>
-<!-- 8. 移動して所有者変更
-   ```
-   cd /home/bcz048452
-   ```
-   ```
-   chown bcz048452 key_monmx9-01-01v.bc-extra.net.pem
-   ```
-   ```
-   chown bcz048452 csr_monmx9-01-01v.bc-extra.net.pem
-   ``` -->
 <hr>
 <h2 id="99-%E4%BA%8B%E5%BE%8C%E4%BD%9C%E6%A5%AD">99. 事後作業</h2>
 <hr>
